@@ -11,3 +11,10 @@
 	r={r}
 	fill={fill}
 />
+
+<style>
+	circle {
+		transition: 1s;
+		opacity: 0.7;
+	}
+</style>

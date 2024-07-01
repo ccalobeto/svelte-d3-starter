@@ -2,14 +2,18 @@
 	import { scaleLinear } from 'd3';
 	import Circle from './Circle.svelte';
 
-	const data = Array.from({ length: 1000 }).map(() => {
-		return {
-			a: Math.random(),
-			b: Math.random(),
-			r: Math.random(),
-			fill: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`,
-		};
-	});
+	let data = [];
+	// make data every 2 seconds to simulate
+	setInterval(() => {
+		data = Array.from({ length: 1000 }).map(() => {
+			return {
+				a: Math.random(),
+				b: Math.random(),
+				r: Math.random(),
+				fill: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`,
+			};
+		});
+	}, 2000);
 
 	let width = 1000;
 	let height = 500;
@@ -46,9 +50,5 @@
 	}
 	svg {
 		background: #f3fff0;
-	}
-
-	circle {
-		opacity: 0.7;
 	}
 </style>
