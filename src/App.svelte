@@ -2,19 +2,22 @@
 	import { scaleLinear } from 'd3';
 	import Circle from './Circle.svelte';
 
-	const data = [
-		{ a: 155, b: 384, r: 20, fill: '#0000FF' },
-		{ a: 340, b: 238, r: 52, fill: '#FF0AAE' },
-		{ a: 531, b: 151, r: 20, fill: '#00E1FF' },
-		{ a: 482, b: 307, r: 147, fill: '#7300FF' },
-		{ a: 781, b: 91, r: 61, fill: '#0FFB33' },
-		{ a: 668, b: 229, r: 64, fill: '#D400FF' },
-	];
+	const data = Array.from({ length: 1000 }).map(() => {
+		return {
+			a: Math.random(),
+			b: Math.random(),
+			r: Math.random(),
+			fill: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`,
+		};
+	});
 
 	let width = 1000;
 	let height = 500;
-	$: xScale = scaleLinear().domain([0, 1000]).range([0, width]);
-	$: yScale = scaleLinear().domain([0, 500]).range([height, 0]);
+	$: xScale = scaleLinear().domain([0, 1]).range([0, width]);
+	$: yScale = scaleLinear().domain([0, 1]).range([height, 0]);
+	$: rScale = scaleLinear()
+		.domain([0, 1])
+		.range([5, width / 100]);
 </script>
 
 <main
@@ -29,7 +32,7 @@
 			<Circle
 				x={xScale(a)}
 				y={yScale(b)}
-				r={r}
+				r={rScale(r)}
 				fill={fill}
 			/>
 		{/each}
