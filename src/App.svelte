@@ -1,5 +1,7 @@
 <script>
 	import { scaleLinear } from 'd3';
+	import Circle from './Circle.svelte';
+
 	const data = [
 		{ a: 155, b: 384, r: 20, fill: '#0000FF' },
 		{ a: 340, b: 238, r: 52, fill: '#FF0AAE' },
@@ -24,9 +26,9 @@
 		height={height}
 	>
 		{#each data as { a, b, r, fill }}
-			<circle
-				cx={xScale(a)}
-				cy={yScale(b)}
+			<Circle
+				x={xScale(a)}
+				y={yScale(b)}
 				r={r}
 				fill={fill}
 			/>
