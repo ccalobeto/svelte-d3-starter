@@ -18,3 +18,10 @@ npm i
 // start the development server
 npm run dev
 ```
+
+## Tutorial
+- For understanding the use of canvas [go](https://www.youtube.com/watch?v=MjPRp398T2M&list=PLNvnDrMLMSipfbxSp1Z4v9Ydu2ud5i9V8&index=4)
+
+## Focus Code
+What will you see in commits
+![](./git-log.png)
