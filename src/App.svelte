@@ -1,11 +1,12 @@
 <script>
 	import { scaleLinear } from 'd3';
 	import Circle from './Circle.svelte';
+	import Canvas from './Canvas.svelte';
 
 	let data = [];
 	// make data every 2 seconds to simulate
 	setInterval(() => {
-		data = Array.from({ length: 1000 }).map(() => {
+		data = Array.from({ length: 10000 }).map(() => {
 			return {
 				a: Math.random(),
 				b: Math.random(),
@@ -21,14 +22,14 @@
 	$: yScale = scaleLinear().domain([0, 1]).range([height, 0]);
 	$: rScale = scaleLinear()
 		.domain([0, 1])
-		.range([5, width / 100]);
+		.range([5, width / 1000]);
 </script>
 
 <main
 	bind:clientWidth={width}
 	bind:clientHeight={height}
 >
-	<svg
+	<Canvas
 		width={width}
 		height={height}
 	>
@@ -40,7 +41,7 @@
 				fill={fill}
 			/>
 		{/each}
-	</svg>
+	</Canvas>
 </main>
 
 <style>
